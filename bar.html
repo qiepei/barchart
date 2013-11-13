@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM bar chart</title>
+        <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+        <style>
+            #mychart{
+                width:100%;
+                height:500px;
+            }
+            group { margin:0;padding:0;}
+        </style>
+    </head>
+    <body>
+        <input type="button" value="vertical1" onclick="showVertical1()"/>
+        <input type="button" value="horizontal1" onclick="showHorizontal1()"/>
+        <input type="button" value="vertical2" onclick="showVertical2()"/>
+        <input type="button" value="horizontal2" onclick="showHorizontal2()"/>
+        <input type="button" value="vertical3" onclick="showVertical3()"/>
+        <input type="button" value="horizontal3" onclick="showHorizontal3()"/>
+        <input type="button" value="clear" onclick="clearfn1()"/>
+        <div id="mychart"></div>
+        <script src="bar_chart.js"></script>
+        <script>
+            var wrapper = document.getElementById("mychart");
+            var options = {
+              chart:{
+                width:700,
+                height:450,
+                animation:true
+              },
+              title:{
+                text:'mybar'
+              },
+              legend:{
+                data_switch:false,
+                highlight:false
+              },
+              tooltip:{
+                on:false
+              },
+			  render:"DOM"
+            };
+            var type='bar';
+            var mybar = new BarChart(options,wrapper);
+            var data1 = {
+              xAxis:{
+                data:['Mon','Tue','Wed','Thu','Fri']
+              },
+              yAxis:{
+                unit:"Kb",
+                data:[0,5,10,15,20]
+              },
+              series:[
+              {
+                name:"Jan",
+                color:"blue",
+                data:[2,8,18,6,12]
+              }
+              ]
+            }
+            var data2 = {
+              xAxis:{
+                unit:"Hour",
+                min:10,
+                max:90,
+                step:20,
+                data:[]
+              },
+              yAxis:{
+                unit:"Kg",
+                min:5,
+                max:40,
+                step:5,
+                data:[]
+              },
+              series:[
+              {
+                name:"Jan",
+                color:"blue",
+                data:[2,8,18,6,12]
+              }
+              ]
+            }
+            var data3 = {
+              xAxis:{
+                unit:"Hour",
+                min:10,
+                max:90,
+                step:20,
+                data:[]
+              },
+              yAxis:{
+                unit:"Kg",
+                data:[]
+              },
+              series:[
+              {
+                name:"Jan",
+                color:"blue",
+                data:[2,8,18,6,12]
+              }
+              ]
+            }
+            function showVertical1(){
+              var bar_options={
+                  vertical:true,
+				  render:"DOM"
+              }
+              mybar.update(data1,bar_options);
+            }
+            function showVertical2(){
+              var bar_options={
+                  vertical:true,
+				  render:"DOM"
+              }
+              mybar.update(data2,bar_options);
+            }
+            function showVertical3(){
+              var bar_options={
+                  vertical:true,
+				  render:"DOM"
+              }
+              mybar.update(data3,bar_options);
+            }
+            function showHorizontal1(){
+              var bar_options={
+                  vertical:false,
+				  render:"DOM"
+              }
+              mybar.update(data1,bar_options);
+            }
+            function showHorizontal2(){
+              var bar_options={
+                  vertical:false,
+				  render:"DOM"
+              }
+              mybar.update(data2,bar_options);
+            }
+            function showHorizontal3(){
+              var bar_options={
+                  vertical:false,
+				  render:"DOM"
+              }
+              mybar.update(data3,bar_options);
+            }
+            function clearfn1(){
+              mybar.clear();
+            }
+        </script>
+    </body>
+</html>
