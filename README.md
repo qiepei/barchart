@@ -1,7 +1,8 @@
 barchart
 ========
 
-You can show data in BarCharts by this lib, which build by DOM.
-The lib provides three interface, that is the creation function, the update function and the clear function.
-
-The lib consists of several parts that is the preprocess module,calculation module, render engine.
+You can show data in BarCharts by this lib, whose render engine is bulit by DOM.
+What you need to do is to get data by ajax or other ways, create a BarChart object, and updata it by options.
+You wanna some special effects such as animation and interaction? This lib will help you.
+You're worrying about the compatibbility of the IEs? Ohh, DOM works on every browser.
+Try it!
